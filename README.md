@@ -26,10 +26,24 @@ Using this method, you don't have to deal with any simlinks so you can just add 
 
 `echo "alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'" >> $HOME/.bashrc`
 
-## How to use
+## How to add new or changed config files
 
 `config add .vimrc # where .vimrc can be any config file you want tracked`
 
 `config commit -m "added vimrc"`
 
 `config push`
+
+## How to setup
+
+Create alias, reload bashrc, put cfg in gitignore, clone the bare repo, checkout and dont show untracked files, then clone vundle for plugins
+
+```bash
+echo "alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'" >> ~/.bashrc
+source ~/.bashrc
+echo ".cfg" >> .gitignore
+git clone --bare git@github.com:nancynobody/dotfiles.git .cfg/
+config checkout
+config config --local status.showUntrackedFiles no
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
