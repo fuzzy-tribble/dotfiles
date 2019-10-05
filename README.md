@@ -30,6 +30,6 @@ Using this method, you don't have to deal with any simlinks so you can just add 
 
 `config add .vimrc # where .vimrc can be any config file you want tracked`
 
-`config commit -m "added vimrc`
+`config commit -m "added vimrc"`
 
 `config push`
